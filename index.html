@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Domine o ChatGPT Plus — Sumário Interativo</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="hero">
+        <div class="hero__content">
+          <span class="hero__eyebrow">Curso completo • 19 módulos</span>
+          <h1>Domine o ChatGPT Plus</h1>
+          <p>
+            Um sumário interativo para explorar cada módulo, descobrir as lições
+            e encontrar rapidamente o conteúdo que você precisa.
+          </p>
+          <div class="hero__actions">
+            <a class="cta cta--primary" href="#sumario">Ver sumário</a>
+            <a class="cta cta--ghost" href="#inscricao">Garantir minha vaga</a>
+          </div>
+        </div>
+        <div class="hero__card">
+          <div class="summary" id="summary">
+            <div class="summary__item">
+              <span class="summary__label">Módulos</span>
+              <strong class="summary__value" id="module-count">0</strong>
+            </div>
+            <div class="summary__item">
+              <span class="summary__label">Lições</span>
+              <strong class="summary__value" id="lesson-count">0</strong>
+            </div>
+            <div class="summary__item">
+              <span class="summary__label">Busca ativa</span>
+              <strong class="summary__value" id="result-count">0</strong>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="content" id="sumario">
+          <div class="content__header">
+            <div>
+              <h2>Sumário do curso</h2>
+              <p>
+                Filtre por módulo ou lição para localizar tópicos específicos
+                rapidamente.
+              </p>
+            </div>
+            <label class="search">
+              <span class="search__label">Buscar no sumário</span>
+              <input
+                id="search-input"
+                type="search"
+                placeholder="Ex: Deep Research, Canvas, voz"
+                autocomplete="off"
+              />
+            </label>
+          </div>
+          <div id="module-grid" class="module-grid" aria-live="polite"></div>
+        </section>
+
+        <section class="cta-section" id="inscricao">
+          <div class="cta-section__content">
+            <h2>Pronto para acelerar seus resultados?</h2>
+            <p>
+              Construa prompts mais fortes, domine recursos avançados e otimize
+              sua rotina de trabalho com o ChatGPT Plus.
+            </p>
+          </div>
+          <div class="cta-section__actions">
+            <a class="cta cta--primary" href="#">Reservar agora</a>
+            <a class="cta cta--secondary" href="#">Baixar ementa PDF</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./dist/app.js"></script>
+  </body>
+</html>
