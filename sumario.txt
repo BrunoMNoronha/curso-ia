@@ -1,0 +1,88 @@
+Curso: Domine o ChatGPT Plus - Sumário
+
+Módulo 00 - Setup e visão geral
+0.1 Como o curso está organizado (trilhas: uso geral, trabalho, desenvolvimento)
+0.2 Onde cada recurso aparece na interface (Web, iOS/Android, Windows, macOS)
+0.3 Limites e variações por plano (por que “limites aplicam”)
+Módulo 01 - ChatGPT Plus: o que muda na prática
+1.1 O que é o Plus e o que ele inclui (prioridade, limites maiores, recursos expandidos)
+1.2 Modelos disponíveis no Plus: GPT-5 e modelos de raciocínio (quando usar cada um)
+1.3 O que não está incluído: API é cobrada separadamente (fronteira produto vs. API)
+Módulo 02 - Fundamentos que destravam resultado
+2.1 Estrutura de prompt (objetivo, contexto, restrições, formato de saída)
+2.2 Técnicas de iteração (refinar, criticar, verificar, padronizar)
+2.3 Padrões de confiabilidade (o que pedir para reduzir alucinação)
+Módulo 03 - Pesquisa na web com citações
+3.1 Quando usar Search vs. Deep Research
+3.2 Leitura de resultados e validação por fontes
+3.3 Como exigir citações e como auditar respostas
+Módulo 04 - Deep Research (pesquisa longa e estruturada)
+4.1 Como formular uma pergunta “pesquisável”
+4.2 Planejamento, escopo, critérios e entregáveis
+4.3 Como transformar pesquisa em decisão (resumo executivo, riscos, próximos passos)
+Módulo 05 - Uploads e análise de arquivos
+5.1 Quais arquivos funcionam melhor (PDF, planilhas, docs, logs)
+5.2 Perguntas boas para análise (extração, comparação, auditoria, síntese)
+5.3 Boas práticas de privacidade ao enviar arquivos
+Módulo 06 - Imagens (geração e edição)
+6.1 Prompt de imagem (estilo, composição, negativo, consistência)
+6.2 Edição de imagem com instruções precisas (o que pedir / o que evitar)
+6.3 Limites, qualidade e guardrails por uso
+Módulo 07 - Voz avançada (inclui vídeo e compartilhamento de tela)
+7.1 Voz no Web vs apps (como iniciar e controlar)
+7.2 Vídeo na conversa por voz (câmera)
+7.3 Compartilhar tela e imagens durante a voz
+7.4 Limites de voz/vídeo/screen share e fallback de modelo
+7.5 Controles de dados (o que pode ser usado para treino e como desligar)
+Módulo 08 - Canvas (editor de escrita e código)
+8.1 Quando usar Canvas vs chat normal
+8.2 Revisão guiada (selecionar trechos, feedback inline, atalhos)
+8.3 Canvas para código (render/execução quando disponível)
+8.4 Compartilhar Canvas e exportar (PDF/MD/DOCX ou arquivo de código)
+8.5 Habilitar Canvas dentro de um GPT (capability no GPT Builder)
+Módulo 09 - Projetos (organização de trabalho)
+9.1 Estrutura de projeto (objetivo, arquivos, versões, histórico)
+9.2 Padrões de pastas e assets (prompts, docs, specs, checklists)
+9.3 Reuso: templates por tipo de entrega (dev, estudo, trabalho)
+Módulo 10 - GPTs personalizados (Builder)
+10.1 Quando vale criar um GPT vs usar instruções no chat
+10.2 Instruções, conhecimento, limites e testes
+10.3 Publicação/compartilhamento e manutenção
+Módulo 11 - Tasks (tarefas agendadas)
+11.1 O que Tasks faz (execução automática + notificação)
+11.2 Tipos de agendamento (pontual e recorrente)
+11.3 Onde Tasks funciona (Web, iOS, Android, macOS)
+11.4 Padrões de tarefas úteis (briefing, lembrete, rotina de estudo)
+Módulo 12 - ChatGPT Agent (modo agente)
+12.1 O que é Agent e quando usar (tarefas multi-etapas com confirmações)
+12.2 Como iniciar e como definir escopo e critérios
+12.3 Limites no Plus e como reduzir desperdício de cota
+12.4 Segurança: autenticação, confirmações, interrupção e auditoria
+Módulo 13 - Codex (agente de programação)
+13.1 Onde o Codex roda (web, CLI, IDE, cloud)
+13.2 Fluxos: implementar feature, corrigir bug, rodar testes, code review
+13.3 Limites de uso e boas práticas para evitar retrabalho
+Módulo 14 - Sora (vídeo)
+14.1 O que dá para gerar no Plus (vídeo e imagens) e limites práticos
+14.2 Resolução/duração e concorrência de gerações
+14.3 Política de uso e guardrails (regras anti-abuso)
+Módulo 15 - Apps e Conectores (dados externos e sincronização)
+15.1 Conceito: apps com sync (indexação, permissões, uso por @)
+15.2 O que costuma ser suportado (ex.: GitHub/Drive e tipos de arquivo)
+15.3 Elegibilidade por plano e restrições (ex.: EKM, data residency)
+Módulo 16 - Record (gravação e resumo no macOS)
+16.1 O que é o ChatGPT Record (transcrever + resumir)
+16.2 Onde funciona (desktop macOS) e em quais workspaces/planos
+16.3 Saída em Canvas (transformar em plano, e-mail, código)
+Módulo 17 - Privacidade, segurança e governança pessoal
+17.1 Data Controls (treino, histórico, compartilhamento)
+17.2 Boas práticas com dados sensíveis e arquivos
+17.3 Como reduzir risco de vazamento (princípios e checklists)
+Módulo 18 - Qualidade, limites e troubleshooting
+18.1 Message caps, reset, quedas de qualidade e como contornar
+18.2 Estratégias de fallback (trocar modelo, reduzir contexto, dividir tarefa)
+18.3 Diagnóstico: quando o erro é prompt vs limite vs ferramenta
+Apêndices
+A. Glossário (Plus, Deep Research, Agent, Tasks, Canvas, Codex, Sora)
+B. Templates de prompts (pesquisa, especificação técnica, revisão, QA, decisão)
+C. Rubricas de avaliação (clareza, completude, verificabilidade, risco)
