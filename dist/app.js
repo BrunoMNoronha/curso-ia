@@ -198,21 +198,35 @@ var searchInput = document.querySelector("#search-input");
 var moduleCount = document.querySelector("#module-count");
 var lessonCount = document.querySelector("#lesson-count");
 var resultCount = document.querySelector("#result-count");
-if (!moduleGrid || !searchInput || !moduleCount || !lessonCount || !resultCount) {
+var moduleDetail = document.querySelector("#module-detail");
+if (!moduleGrid || !searchInput || !moduleCount || !lessonCount || !resultCount || !moduleDetail) {
   throw new Error("Elementos essenciais n\xE3o encontrados no DOM.");
 }
 var normalizeText = (value) => value.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
 var countLessons = (modules) => modules.reduce((total, moduleItem) => total + moduleItem.lessons.length, 0);
-var createModuleCard = (moduleItem) => {
+var createModuleCard = (moduleItem, onSelect) => {
+  const card = document.createElement("article");
+  card.className = "module";
+  card.dataset.moduleId = moduleItem.id;
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
   const lessonsMarkup = moduleItem.lessons.map((lesson) => `<li><span>${lesson.id}</span>${lesson.title}</li>`).join("");
-  return `
-    <article class="module">
-      <h3 class="module__title">${moduleItem.title}</h3>
-      <ul class="module__lessons">${lessonsMarkup}</ul>
-    </article>
+  card.innerHTML = `
+    <h3 class="module__title">${moduleItem.title}</h3>
+    <ul class="module__lessons">${lessonsMarkup}</ul>
   `;
+  card.addEventListener("click", () => {
+    onSelect(moduleItem.id);
+  });
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onSelect(moduleItem.id);
+    }
+  });
+  return card;
 };
-var renderModules = (modules) => {
+var renderModules = (modules, selectedModuleId2, onSelect) => {
   if (modules.length === 0) {
     moduleGrid.innerHTML = `
       <div class="module module--empty">
@@ -222,7 +236,16 @@ var renderModules = (modules) => {
     `;
     return;
   }
-  moduleGrid.innerHTML = modules.map(createModuleCard).join("");
+  moduleGrid.innerHTML = "";
+  const fragment = document.createDocumentFragment();
+  modules.forEach((moduleItem) => {
+    const card = createModuleCard(moduleItem, onSelect);
+    if (selectedModuleId2 && moduleItem.id === selectedModuleId2) {
+      card.classList.add("module--active");
+    }
+    fragment.appendChild(card);
+  });
+  moduleGrid.appendChild(fragment);
 };
 var filterModules = (modules, query) => {
   const normalizedQuery = normalizeText(query.trim());
@@ -249,10 +272,39 @@ var updateSummary = (modules, visibleLessons) => {
   lessonCount.textContent = countLessons(courseOutline.modules).toString();
   resultCount.textContent = visibleLessons.toString();
 };
+var renderModuleDetail = (moduleItem) => {
+  if (!moduleItem) {
+    moduleDetail.innerHTML = `
+      <h3 class="module-detail__title">Selecione um m\xF3dulo</h3>
+      <p class="module-detail__empty">
+        Clique em um m\xF3dulo para ver o conte\xFAdo completo e acompanhar as li\xE7\xF5es.
+      </p>
+    `;
+    return;
+  }
+  const lessonsMarkup = moduleItem.lessons.map((lesson) => `<li><span>${lesson.id}</span>${lesson.title}</li>`).join("");
+  moduleDetail.innerHTML = `
+    <h3 class="module-detail__title">${moduleItem.title}</h3>
+    <ul class="module-detail__lessons">${lessonsMarkup}</ul>
+  `;
+};
+var selectedModuleId = null;
+var visibleModules = [];
+var handleModuleSelect = (moduleId) => {
+  selectedModuleId = moduleId;
+  renderModules(visibleModules, selectedModuleId, handleModuleSelect);
+  const selectedModule = visibleModules.find((moduleItem) => moduleItem.id === selectedModuleId) ?? null;
+  renderModuleDetail(selectedModule);
+};
 var updateView = (query) => {
-  const filteredModules = filterModules(courseOutline.modules, query);
-  renderModules(filteredModules);
-  updateSummary(courseOutline.modules, countLessons(filteredModules));
+  visibleModules = filterModules(courseOutline.modules, query);
+  const selectedModule = selectedModuleId ? visibleModules.find((moduleItem) => moduleItem.id === selectedModuleId) ?? null : null;
+  if (!selectedModule) {
+    selectedModuleId = null;
+  }
+  renderModules(visibleModules, selectedModuleId, handleModuleSelect);
+  renderModuleDetail(selectedModule);
+  updateSummary(courseOutline.modules, countLessons(visibleModules));
 };
 searchInput.addEventListener("input", (event) => {
   const target = event.target;
