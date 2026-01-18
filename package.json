@@ -1,0 +1,14 @@
+{
+  "name": "curso-ia",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit && esbuild src/app.ts --bundle --outfile=dist/app.js --format=esm --target=es2020",
+    "dev": "esbuild src/app.ts --bundle --outfile=dist/app.js --format=esm --target=es2020 --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.24.0",
+    "typescript": "^5.6.3"
+  }
+}
